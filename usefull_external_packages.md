@@ -1,50 +1,60 @@
-# Console Application:
+# Console Application
 
-## Command-Line arguments:
-    
-https://github.com/codegangsta/cli
-https://github.com/alecthomas/kingpin
-https://github.com/codegangsta/cli
-    
-## Console:
-https://github.com/alecthomas/colour (colouring of the output)
+## Command-Line arguments
+
+* https://github.com/codegangsta/cli
+* https://github.com/alecthomas/kingpin
+* https://github.com/codegangsta/cli
+
+## Console
+
+* https://github.com/alecthomas/colour (colouring of the output)
 
 
-# Hashing:
+# File System
 
-## Skein:
-    
-https://github.com/yann2192/GoKeeper/blob/master/src/crypto/skein/skein.go
-https://github.com/whyrusleeping/GoSkein
+## Globbing
 
-# Configuration file formats:
+* https://github.com/ryanuber/go-glob
 
-https://github.com/spf13/viper     (YAML, JSON, TOML, HCL)
-https://github.com/vaughan0/go-ini (INI)
-https://github.com/go-ini/ini      (INI)
+
+# Hashing
+
+## Skein
+
+* https://github.com/yann2192/GoKeeper/blob/master/src/crypto/skein/skein.go
+* https://github.com/whyrusleeping/GoSkein
+
+
+# Configuration file formats
+
+* https://github.com/spf13/viper     (YAML, JSON, TOML, HCL)
+* https://github.com/vaughan0/go-ini (INI)
+* https://github.com/go-ini/ini      (INI)
 
 
 # Compression
 
-## LZ4:
+## LZ4
 
-https://github.com/pierrec/lz4
-https://github.com/bkaradzic/go-lz4
+* https://github.com/pierrec/lz4
+* https://github.com/bkaradzic/go-lz4
 
-## Snappy:
+## Snappy
 
-https://github.com/golang/snappy
+* https://github.com/golang/snappy
 
 
 # Logging
 
 ## log15
 
-https://www.progville.com/go/log15-powerful-logging-golang/
+* https://www.progville.com/go/log15-powerful-logging-golang/
+
 
 ## Piping command-line tools (interesting)
 
-https://blog.gopheracademy.com/advent-2015/composable-command-line-tools/
+* https://blog.gopheracademy.com/advent-2015/composable-command-line-tools/
 
 
 ```
@@ -142,5 +152,3 @@ func main() {
 	}
 }
 ```
-
-
