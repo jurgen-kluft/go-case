@@ -4,7 +4,6 @@
 
 * https://github.com/codegangsta/cli
 * https://github.com/alecthomas/kingpin
-* https://github.com/codegangsta/cli
 
 ## Console
 
@@ -22,6 +21,7 @@
 
 ## Skein
 
+* https://github.com/wernerd/Skein3Fish
 * https://github.com/yann2192/GoKeeper/blob/master/src/crypto/skein/skein.go
 * https://github.com/whyrusleeping/GoSkein
 
@@ -57,10 +57,11 @@
 * https://blog.gopheracademy.com/advent-2015/composable-command-line-tools/
 
 
+# Code Snippets
+
+## Work Pool (http://play.golang.org/p/KUVQEEEdfV)
+
 ```
-
-// Work-Pool (http://play.golang.org/p/KUVQEEEdfV)
-
 package main
 
 import (
