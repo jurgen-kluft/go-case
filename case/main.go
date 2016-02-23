@@ -3,8 +3,8 @@ package main
 import (
 	"os"
 
+	"github.com/jurgen-kluft/Case/cmd"
 	"github.com/jurgen-kluft/writ"
-	"github.com/jurgen-kluft/bras/cmd"
 )
 
 func appmain(c *cli.Context) {
