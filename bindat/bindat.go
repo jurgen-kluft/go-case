@@ -1,13 +1,23 @@
 package bindat
 
-import ()
+import (
+	"fmt"
+	"path"
+)
 
-func NewReader(filepath string) (reader Reader, err error) {
-	return NewFileReader(filepath)
+const (
+	DataAlignment = 64
+	SizeOfHeader  = 64
+)
+
+func GetBinDatPath(repopath string, index int) string {
+	return path.Join(repopath, "dat", fmt.Sprintf("%04X.dat", index))
 }
 
-func NewWriter(filepath string) (writer Writer, err error) {
-	return NewFileAppendWriter(filepath)
+func NewReader(datpath string) (reader Reader, err error) {
+	return NewFileReader(datpath)
 }
 
-
+func NewWriter(datpath string) (writer Writer, err error) {
+	return NewFileAppendWriter(datpath)
+}

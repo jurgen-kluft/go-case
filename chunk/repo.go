@@ -5,7 +5,5 @@ import (
 )
 
 type repo struct {
-	bins []Bin
-
 	hasher hashing.Hasher
 }

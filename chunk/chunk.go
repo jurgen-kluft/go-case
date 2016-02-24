@@ -32,6 +32,7 @@ func NewChunk(maxsize int) Chunk {
 	for i := 0; i < cSizeOfMagic; i++ {
 		c[cOffsetOfMagic+i] = cMAGIC[i]
 	}
+	return c
 }
 
 func (c Chunk) GetHash() []byte {
@@ -41,8 +42,8 @@ func (c Chunk) GetSize() uint32 {
 	return binary.BigEndian.Uint32(c[cOffsetOfSize : cOffsetOfSize+cSizeOfSize])
 }
 func (c Chunk) IsValid() bool {
-	valid := (GetSize() >= GetLength())
-	valid = valid && (GetSize() < len(c))
+	valid := (c.GetSize() >= c.GetLength())
+	valid = valid && (c.GetSize() < uint32(len(c)))
 	return valid
 }
 func (c Chunk) HasMagic() bool {
