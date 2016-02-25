@@ -12,6 +12,12 @@
 
 # File System
 
+## File Attributes and Times
+
+Go doesn't provide all the file attributes and time properties, this package has been created because of that
+
+* https://github.com/jurgen-kluft/times
+
 ## Globbing
 
 * https://github.com/ryanuber/go-glob
