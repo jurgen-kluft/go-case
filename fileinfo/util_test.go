@@ -31,7 +31,7 @@ func fileTest(t testing.TB, testFunc func(f *os.File)) {
 	testFunc(f)
 }
 
-func timespecTest(ts Timespec, r timeRange, t testing.TB) {
+func timespecTest(ts Times, r timeRange, t testing.TB) {
 	if !r.Contains(ts.AccessTime()) {
 		t.Errorf("expected %s to be in range: %s\n", ts.AccessTime(), r.start)
 	}

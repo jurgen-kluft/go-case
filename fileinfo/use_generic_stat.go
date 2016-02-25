@@ -2,9 +2,9 @@
 
 package fileinfo
 
-const hasPlatformSpecificStat = false
-
-// do not use, only here to prevent "undefined" method error.
-func platformSpecficStat(name string) (Timespec, error) {
-	return nil, nil
+func getTimespec(fi os.FileInfo) (t Times) {
+	t.flags = 0
+	t.atime = time.Unix(0, 0)
+	t.mtime = time.Unix(0, 0)
+	return t
 }

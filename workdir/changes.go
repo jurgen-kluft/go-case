@@ -16,11 +16,17 @@ package workdir
 //  # Added
 //    - A doesn't have this file - B has this file
 
+type State int
+
 const (
-	StateClean     = 1
-	StateAdded     = 2
-	StateOutOfDate = 4
-	StateModified  = 8
-	StateMissing   = 16
-	StateUntracked = 32
+	StateClean     State = 1
+	StateAdded     State = 2
+	StateOutOfDate State = 4
+	StateModified  State = 8
+	StateMissing   State = 16
+	StateUntracked State = 32
 )
+
+func DetectChanges(latest WorkTree, current WorkTree) map[WorkItemID]State {
+	return map[WorkItemID]State{}
+}

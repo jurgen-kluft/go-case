@@ -32,34 +32,3 @@ func TestStatErr(t *testing.T) {
 		t.Error("expected an error")
 	}
 }
-
-func TestCheat(t *testing.T) {
-	// not all times are available for all platforms
-	// this allows us to get 100% test coverage for platforms which do not have
-	// ChangeTime/BirthTime
-	var c ctime
-	if c.HasChangeTime() {
-		c.ChangeTime()
-	}
-
-	var b btime
-	if b.HasBirthTime() {
-		b.BirthTime()
-	}
-
-	var nc noctime
-	func() {
-		if !nc.HasChangeTime() {
-			defer func() { recover() }()
-		}
-		nc.ChangeTime()
-	}()
-
-	var nb nobtime
-	func() {
-		if !nb.HasBirthTime() {
-			defer func() { recover() }()
-		}
-		nb.BirthTime()
-	}()
-}
