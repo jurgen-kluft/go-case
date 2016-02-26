@@ -5,15 +5,19 @@ import (
 )
 
 type Filter interface {
-	Match(string) bool
+	Match(string) (bool, error)
 }
 
-type IgnoreFilter struct {
+type includeFilter struct {
 	patterns []string
 }
 
-func (filter IgnoreFilter) Match(s string) (bool, error) {
-	for _, p := range filter.patterns {
+func NewIncludeFilter(patterns []string) Filter {
+	return &includeFilter{patterns: patterns}
+}
+
+func filterMatch(patterns []string, s string) (bool, error) {
+	for _, p := range patterns {
 		match, err := glob.PathMatch(p, s)
 		if err != nil {
 			return false, err
@@ -23,4 +27,20 @@ func (filter IgnoreFilter) Match(s string) (bool, error) {
 		}
 	}
 	return false, nil
+}
+
+func (filter includeFilter) Match(s string) (bool, error) {
+	return filterMatch(filter.patterns, s)
+}
+
+type ignoreFilter struct {
+	patterns []string
+}
+
+func NewIgnoreFilter(patterns []string) Filter {
+	return &ignoreFilter{patterns: patterns}
+}
+
+func (filter ignoreFilter) Match(s string) (bool, error) {
+	return filterMatch(filter.patterns, s)
 }

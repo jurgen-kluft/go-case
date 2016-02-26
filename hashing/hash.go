@@ -1,8 +1,9 @@
 package hashing
 
 import (
-	"errors"
+	"crypto/sha256"
 	"github.com/jurgen-kluft/Case/hashing/skein"
+	"hash"
 )
 
 // CompareHashes will compare 2 byte arrays and return true if they
@@ -23,27 +24,41 @@ type Hasher interface {
 	Hash([]byte, []byte)
 }
 
-type SkeinHasher struct {
-	engine *skein.Skein
+type SHA256Hasher struct {
+	engine hash.Hash
 }
 
-type HasherType int
+func (h *SHA256Hasher) Hash(data []byte, hash []byte) {
+	h.engine.Reset()
+	hash256 := h.engine.Sum(nil)
+	copy(hash, hash256)
+	return
+}
 
-const (
-	HasherTypeSkein HasherType = 1
-)
-
-func NewHasher(hasherType HasherType) (Hasher, error) {
-	if hasherType == HasherTypeSkein {
-		hasher := &SkeinHasher{}
-		hasher.engine, _ = skein.New(skein.Skein512, 256)
-		return hasher, nil
-	}
-	return nil, errors.New("unsupported hasher type")
+type SkeinHasher struct {
+	engine *skein.Skein
 }
 
 func (h *SkeinHasher) Hash(data []byte, hash []byte) {
 	h.engine.Update(data)
 	h.engine.DoFinal(hash)
 	return
+}
+
+type HasherType int
+
+const (
+	SHA256   HasherType = 1
+	Skein256 HasherType = 1
+)
+
+func NewHasher(hasherType HasherType) Hasher {
+	if hasherType == Skein256 {
+		hasher := &SHA256Hasher{}
+		hasher.engine = sha256.New()
+		return hasher
+	}
+	hasher := &SkeinHasher{}
+	hasher.engine, _ = skein.New(skein.Skein512, 256)
+	return hasher
 }

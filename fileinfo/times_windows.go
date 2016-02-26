@@ -7,7 +7,7 @@ import (
 )
 
 const (
-	flagsWindows = FlagHasBTime
+	flagsWindows = flagHasBTime
 )
 
 func getTimespec(fi os.FileInfo) (t Times) {

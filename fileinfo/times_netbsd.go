@@ -7,7 +7,7 @@ import (
 )
 
 const (
-	flagsNetBSD = FlagHasCTime | FlagHasBTime
+	flagsNetBSD = flagHasCTime | FlagHasBTime
 )
 
 func timespecToTime(ts syscall.Timespec) time.Time {

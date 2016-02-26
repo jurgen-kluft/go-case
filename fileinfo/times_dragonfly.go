@@ -7,7 +7,7 @@ import (
 )
 
 const (
-	flagsDragonFly = FlagHasCTime
+	flagsDragonFly = flagHasCTime
 )
 
 func timespecToTime(ts syscall.Timespec) time.Time {

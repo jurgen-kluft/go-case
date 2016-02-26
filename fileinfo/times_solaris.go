@@ -9,7 +9,7 @@ import (
 // HasChangeTime and HasBirthTime are true if and only if
 // the target OS supports them.
 const (
-	flagsSolaris = FlagHasCTime
+	flagsSolaris = flagHasCTime
 )
 
 func timespecToTime(ts syscall.Timespec) time.Time {

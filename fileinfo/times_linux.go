@@ -7,7 +7,7 @@ import (
 )
 
 const (
-	flagsLinux = FlagHasCTime
+	flagsLinux = flagHasCTime
 )
 
 func timespecToTime(ts syscall.Timespec) time.Time {

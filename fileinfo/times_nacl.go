@@ -7,7 +7,7 @@ import (
 )
 
 const (
-	flagsNaCL = FlagHasCTime
+	flagsNaCL = flagHasCTime
 )
 
 func timespecToTime(sec, nsec int64) time.Time {

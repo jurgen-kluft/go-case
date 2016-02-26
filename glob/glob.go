@@ -61,8 +61,8 @@ func indexRuneWithEscaping(s string, r rune) int {
 //    { term }
 //  term:
 //    '*'         matches any sequence of non-path-separators
-//              '**'        matches any sequence of characters, including
-//                          path separators.
+//    '**'        matches any sequence of characters, including
+//                path separators.
 //    '?'         matches any single non-path-separator character
 //    '[' [ '^' ] { character-range } ']'
 //          character class (must be non-empty)

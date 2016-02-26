@@ -7,8 +7,8 @@ import (
 )
 
 const (
-	FlagHasCTime = 1
-	FlagHasBTime = 2
+	flagHasCTime = 1
+	flagHasBTime = 2
 )
 
 func HasFlag(flags int, flag int) bool {
@@ -33,32 +33,14 @@ func (t Times) ChangeTime() time.Time {
 	return t.ctime
 }
 func (t Times) HasChangeTime() bool {
-	return (t.flags & FlagHasCTime) == FlagHasCTime
+	return (t.flags & flagHasCTime) == flagHasCTime
 }
 func (t Times) BirthTime() time.Time {
 	return t.btime
 }
 func (t Times) HasBirthTime() bool {
-	return (t.flags & FlagHasBTime) == FlagHasBTime
+	return (t.flags & flagHasBTime) == flagHasBTime
 }
-
-/*
-	if !r.Contains(ts.AccessTime()) {
-		t.Errorf("expected %s to be in range: %s\n", ts.AccessTime(), r.start)
-	}
-
-	if !r.Contains(ts.ModTime()) {
-		t.Errorf("expected %s to be in range: %s\n", ts.ModTime(), r.start)
-	}
-
-	if ts.HasChangeTime() && !r.Contains(ts.ChangeTime()) {
-		t.Errorf("expected %s to be in range: %s\n", ts.ChangeTime(), r.start)
-	}
-
-	if ts.HasBirthTime() && !r.Contains(ts.BirthTime()) {
-		t.Errorf("expected %s to be in range: %s\n", ts.BirthTime(), r.start)
-	}
-*/
 
 func Stat(filepath string) (t Times, err error) {
 	fhdn, err := os.Open(filepath)
